@@ -11,13 +11,13 @@ FROM ubuntu:17.04
 #ENV JAVA_HOME /opt/java
 #ENV PATH ${PATH}:${JAVA_HOME}/bin
 
-ADD  outputdir/ /opt/app
+ADD  jlinkOut/ /opt/app
 #COPY docker/docker-entrypoint.sh /docker-entrypoint.sh
 COPY docker/tini-static /opt/tini
 
 RUN \
     chown -R 99:99 /opt/app && \
-    chmod +x /opt/app/bin/java_nine.test && chmod +x /opt/tini
+    chmod +x /opt/app/bin/run.sh && chmod +x /opt/tini
 
 # Define default command.
 WORKDIR /opt/app
